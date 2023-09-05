@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn</title>
+</head>
+<body>
+  <!-- My HTML -->
+  <button onclick="ussd()">USSD Operation</button>
+
+<!-- My CSS -->
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    button{
+      background-color: teal;
+      align-items: center;
+      font-size: 30px;
+      padding: 3px;
+      margin: 4px;
+    }
+    body{
+      background-image: url("computer.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      align-self: center;
+    }
+  </style>
+  <!-- Javascript   -->
+    <script>
+        function ussd() {
+            let ussd= prompt("Welcome Please Dial (*311#)");
+            if(ussd=== "*311#"){
+                let options;
+                while(true){
+                  pin= "1234"
+                    options = prompt(
+        `1. Airtime self 
+        2. Airtime others 
+        3. Transfer-Access 
+        4. Transfer others `
+      );
+      if (options === null) {
+        break;
+      }
+
+      switch (options) {
+        // AIRTIME SELF
+        case "1":
+          prompt("Enter amount");
+          alert("successful");
+          break;
+
+        // AIRTIME OTHERS
+        case "2":
+          let number = prompt("Enter Third Party Number");
+          if (number.length === 11) {
+            prompt("Enter amount");
+            let pin = prompt("Enter pin");
+            if (pin.length === 4) {
+              alert("Successful");
+            } else {
+              alert("wrong pin");
+            }
+          } else {
+            alert("Wrong Number");
+          }
+          break;
+          default:
+                alert("Invalid selection for other banks");
+                break;
+                }
+            }
+ 
+        }
+    }
+    </script>
+</body>
+</html>
